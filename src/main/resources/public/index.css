@@ -1,0 +1,10 @@
+ul {
+  list-style-type: none;
+}
+
+form {
+    display: inline-block;
+}
+
+.buttons { display: block; text-align: right; }
+.buttons .btn { float: none; }

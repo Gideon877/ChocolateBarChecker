@@ -16,7 +16,7 @@ public interface ChocolateService {
     @SqlUpdate("insert into chocolate (name, qty) values (?, ?)")
     void createBar(String name, int qty);
 
-    @SqlUpdate("update chocolate set (name, qty) values (:name, :qty) where id = :id")
+    @SqlUpdate("update chocolate set name=:name, qty=:qty where id=:id")
     void updateBar(@Bind("id") int id, @Bind("name") String name, @Bind("qty") int qty);
 
     @SqlQuery("select * from chocolate where name = ?")
@@ -27,7 +27,7 @@ public interface ChocolateService {
     @RegisterBeanMapper(ChocolateBar.class)
     ChocolateBar getBarById(int id);
 
-    @SqlUpdate("update chocolate set qty = qty + 1 where name = ?")
+    @SqlUpdate("update chocolate set qty = qty - 1 where id = ?")
     void eatOneMoreBar(int id);
 
     @SqlUpdate("delete from chocolate where id = ?")
